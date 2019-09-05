@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Login to your account</title>
+
+    <!-- Font Icon -->
+    <link
+      rel="stylesheet"
+      href="fonts/material-icon/css/material-design-iconic-font.min.css"
+    />
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="main">
+      <section class="signup">
+        <!-- <img src="images/signup-bg.jpg" alt=""> -->
+        <div class="container">
+          <div class="signup-content">
+            <h2 class="form-title">Login</h2>
+            <form method="GET" action="#">
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-input"
+                  name="username"
+                  id="username"
+                  placeholder="Your username/email"
+                />
+              </div>
+
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-input"
+                  name="password"
+                  id="password"
+                  placeholder="Enter your Password"
+                />
+                <span
+                  toggle="#password"
+                  class="zmdi zmdi-eye field-icon toggle-password"
+                ></span>
+              </div>
+
+              <div class="form-group">
+                <input
+                  type="submit"
+                  name="submit"
+                  id="submit"
+                  onclick="login()"
+                  class="form-submit"
+                  value="Login"
+                />
+              </div>
+            </form>
+            <p class="loginhere">
+              Have already an account ?
+              <a href="index.html" class="loginhere-link">Register</a>
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- JS -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+
+    <script src="js/main.js"></script>
+    <script>
+      const emailValue = document.querySelector("#username").value;
+      console.log(emailValue);
+      const passwordValue = document.querySelector("#password").value;
+      console.log(passwordValue);
+
+      function login() {}
+
+      const url = "https://tissec.com/new/1/signup-login/api/User/login.php";
+      // The data we are going to send in our request
+      let data = {
+        username: "example@tissec.com",
+        password: "1234"
+      };
+      // The parameters we are gonna pass to the fetch function
+      let fetchData = {
+        method: "POST",
+        body: data
+      };
+      fetch(url, fetchData).then(function(response) {
+        console.log(response);
+
+        // Handle response you get from the server
+      });
+    </script>
+  </body>
+</html>
